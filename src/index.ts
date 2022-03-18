@@ -24,6 +24,7 @@ import edicionRoutes from './routes/edicionRoutes';
 import comiteRoutes from './routes/comiteRoutes';
 import tipoComiteRoutes from './routes/tipoComiteRoutes';
 import investigadorRoutes from './routes/investigadorRoutes';
+import informacionCongresoRoutes from './routes/informacionCongresoRoutes';
 
 class Server {
 
@@ -67,6 +68,7 @@ class Server {
         this.app.use('/comite', comiteRoutes);
         this.app.use('/tipoComite', tipoComiteRoutes);
         this.app.use('/investigador', investigadorRoutes); 
+        this.app.use('/informacionCongreso', informacionCongresoRoutes); 
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
