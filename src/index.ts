@@ -25,6 +25,8 @@ import comiteRoutes from './routes/comiteRoutes';
 import tipoComiteRoutes from './routes/tipoComiteRoutes';
 import investigadorRoutes from './routes/investigadorRoutes';
 import informacionCongresoRoutes from './routes/informacionCongresoRoutes';
+import imagenesPortadaRoutes from './routes/imagenesPortadaRoutes';
+import authRoutes from './routes/authRoutes';
 
 class Server {
 
@@ -69,6 +71,8 @@ class Server {
         this.app.use('/tipoComite', tipoComiteRoutes);
         this.app.use('/investigador', investigadorRoutes); 
         this.app.use('/informacionCongreso', informacionCongresoRoutes); 
+        this.app.use('/imagenesPortada', imagenesPortadaRoutes); 
+        this.app.use('/auth', authRoutes); 
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -76,6 +80,8 @@ class Server {
        this.app.use('/public/registro_informacion', express.static(path.resolve('public/registro_informacion'))); 
        this.app.use('/public/ediciones', express.static(path.resolve('public/ediciones'))); 
        this.app.use('/public/conferencistas', express.static(path.resolve('public/conferencistas'))); 
+       this.app.use('/public/infoCongreso', express.static(path.resolve('public/infoCongreso'))); 
+       this.app.use('/public/imagenesPortada', express.static(path.resolve('public/imagenesPortada'))); 
 
         
     }

@@ -3,16 +3,16 @@ import { Request, Response } from 'express';
 
 import pool from '../database';
 
-class InformacionCongresoController {
+class ImagenesPortadaController {
 
     public async list(req: Request, res: Response): Promise<void> {
-        const games = await pool.query('SELECT * FROM informacion_congreso');
+        const games = await pool.query('SELECT * FROM imagenes_portada');
         res.json(games);
     }
 
     public async getOne(req: Request, res: Response): Promise<any> {
         const { id } = req.params;
-        const games = await pool.query('SELECT * FROM informacion_congreso WHERE id = ?', [id]);
+        const games = await pool.query('SELECT * FROM imagenes_portada WHERE id = ?', [id]);
         console.log(games.length);
         if (games.length > 0) {
             return res.json(games[0]);
@@ -21,25 +21,26 @@ class InformacionCongresoController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        const result = await pool.query('INSERT INTO informacion_congreso set ?', [req.body]);
+        req.body.imagen = req.file?.path;
+        const result = await pool.query('INSERT INTO imagenes_portada set ?', [req.body]);
         res.json({ message: 'Registro Guardado' });
     }
 
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         if (req.file?.path !== undefined) {
-            req.body.logo = req.file?.path;
+            req.body.imagen = req.file?.path;
           }
-        await pool.query('UPDATE informacion_congreso set ? WHERE id = ?', [req.body, id]);
+        await pool.query('UPDATE imagenes_portada set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }
 
     public async delete(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        await pool.query('DELETE FROM informacion_congreso WHERE id = ?', [id]);
+        await pool.query('DELETE FROM imagenes_portada WHERE id = ?', [id]);
         res.json({ message: "Registro eliminado" });
     }
 }
 
-const informacionCongresoController = new InformacionCongresoController;
-export default informacionCongresoController;
+const imagenesPortadaController = new ImagenesPortadaController;
+export default imagenesPortadaController;

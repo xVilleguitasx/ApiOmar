@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "dev": " nodemon ./build"
+    "dev": " nodemon ./build",
+    "start": "node app"
   },
   "keywords": [],
   "author": "",
