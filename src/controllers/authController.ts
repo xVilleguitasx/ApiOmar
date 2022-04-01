@@ -11,9 +11,9 @@ class CarrerasController {
         "SELECT * FROM usuario WHERE nick = ? && pass = ?",
         [user, pass]
       );
-        return res.json(games[0]);
+        return res.json(games[0]); 
   }
-}
+} 
 
 const carrerasController = new CarrerasController();
 export default carrerasController;
