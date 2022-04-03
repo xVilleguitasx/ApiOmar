@@ -27,6 +27,7 @@ import investigadorRoutes from './routes/investigadorRoutes';
 import informacionCongresoRoutes from './routes/informacionCongresoRoutes';
 import imagenesPortadaRoutes from './routes/imagenesPortadaRoutes';
 import authRoutes from './routes/authRoutes';
+import confiReportesRoutes from './routes/confiReportesRoutes';
 
 class Server {
 
@@ -73,6 +74,8 @@ class Server {
         this.app.use('/informacionCongreso', informacionCongresoRoutes); 
         this.app.use('/imagenesPortada', imagenesPortadaRoutes); 
         this.app.use('/auth', authRoutes); 
+        this.app.use('/confiReportes', confiReportesRoutes); 
+   
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -82,6 +85,8 @@ class Server {
        this.app.use('/public/conferencistas', express.static(path.resolve('public/conferencistas'))); 
        this.app.use('/public/infoCongreso', express.static(path.resolve('public/infoCongreso'))); 
        this.app.use('/public/imagenesPortada', express.static(path.resolve('public/imagenesPortada'))); 
+       this.app.use('/public/confiReportes', express.static(path.resolve('public/confiReportes'))); 
+       this.app.use('/public/confiCertificados', express.static(path.resolve('public/confiCertificados'))); 
 
         
     }
