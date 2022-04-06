@@ -28,6 +28,7 @@ import informacionCongresoRoutes from './routes/informacionCongresoRoutes';
 import imagenesPortadaRoutes from './routes/imagenesPortadaRoutes';
 import authRoutes from './routes/authRoutes';
 import confiReportesRoutes from './routes/confiReportesRoutes';
+import confiCertificadosRoutes from './routes/confiCertificadosRoutes';
 
 class Server {
 
@@ -75,6 +76,7 @@ class Server {
         this.app.use('/imagenesPortada', imagenesPortadaRoutes); 
         this.app.use('/auth', authRoutes); 
         this.app.use('/confiReportes', confiReportesRoutes); 
+        this.app.use('/confiCertificados', confiCertificadosRoutes); 
    
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 

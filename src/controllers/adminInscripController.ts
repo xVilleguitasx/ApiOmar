@@ -15,7 +15,7 @@ class AdminInscripController {
     public async update(req: Request, res: Response): Promise<void> {
 
         const { id } = req.params;
-        await pool.query('UPDATE inscripcion set ? WHERE id = ?', [req.body, id]);
+        await pool.query(`UPDATE inscripcion set ? WHERE id = ?`, [req.body, id]);
         res.json({ message: "La inscripcion fue actualizada" });
     }
 
