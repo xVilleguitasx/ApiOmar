@@ -13,8 +13,8 @@ class ConfiCertificadosRoutes {
     config() {
         this.router.get('/', confiCertificadosController.list);
         this.router.post('/',multer.single("plantilla"), confiCertificadosController.create);
-        this.router.put('/:id', confiCertificadosController.update);
-        this.router.delete('/:id',multer.single("plantilla"), confiCertificadosController.delete);
+        this.router.put('/:id',multer.single("plantilla"), confiCertificadosController.update);
+        this.router.delete('/:id', confiCertificadosController.delete);
     }
 
 }

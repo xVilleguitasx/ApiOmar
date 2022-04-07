@@ -21,7 +21,7 @@ class ComiteController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        console.log(req.body)
+     
         const result = await pool.query('INSERT INTO comite set ?', [req.body]);
         res.json({ message: 'Comite Guardada' });
     }

@@ -12,10 +12,7 @@ class InformacionCongresoRoutes {
 
     config() {
         this.router.get('/', informacionCongresoController.list);
-        this.router.get('/:id', informacionCongresoController.getOne);
-        this.router.post('/', informacionCongresoController.create);
         this.router.put('/:id',multer.single("logo"),informacionCongresoController.update);
-        this.router.delete('/:id', informacionCongresoController.delete);
     }
 
 }

@@ -11,7 +11,7 @@ class ConfifuracionController {
     }
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        console.log(req.body);
+      
         await pool.query('UPDATE configuraciones set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "La configuración fue actualizada" });
     }

@@ -21,12 +21,24 @@ class ConfiCertificadosController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
+        console.log(req.file )
+        req.body.plantilla = req.file?.path;
         const result = await pool.query('INSERT INTO confi_certificados set ?', [req.body]);
         res.json({ message: 'Documento Guardado' });
     }
 
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
+        console.log(id)
+        console.log(req.body);
+        console.log(req.file);
+        try {
+        
+         ( req.file?.path) ? req.body.plantilla = req.file?.path : "";
+        } catch (error) {
+            
+        }
+       
         await pool.query('UPDATE confi_certificados set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "El documento fue actualizado" });
     }
