@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Settings
 const storage = multer.diskStorage({
-    destination: 'public/investigadores',
+    destination: 'public/ediciones',
     filename: (req, file, cb) => {
         cb(null, file.originalname)
     }
