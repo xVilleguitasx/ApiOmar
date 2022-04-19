@@ -30,6 +30,7 @@ import authRoutes from './routes/authRoutes';
 import confiReportesRoutes from './routes/confiReportesRoutes';
 import confiCertificadosRoutes from './routes/confiCertificadosRoutes';
 import eliminarArchivosRoutes from './routes/eliminarArchivosRoutes';
+import usuariosRoutes from './routes/usuariosRoutes';
 
 class Server {
 
@@ -79,6 +80,7 @@ class Server {
         this.app.use('/confiReportes', confiReportesRoutes); 
         this.app.use('/confiCertificados', confiCertificadosRoutes); 
         this.app.use('/eliminarArchivos', eliminarArchivosRoutes); 
+        this.app.use('/usuarios', usuariosRoutes); 
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
