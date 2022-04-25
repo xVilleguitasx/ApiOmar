@@ -31,6 +31,8 @@ import confiReportesRoutes from './routes/confiReportesRoutes';
 import confiCertificadosRoutes from './routes/confiCertificadosRoutes';
 import eliminarArchivosRoutes from './routes/eliminarArchivosRoutes';
 import usuariosRoutes from './routes/usuariosRoutes';
+import galeriaInformacionRoutes from './routes/galeriaInformacionRoutes';
+import galeriaLugarRoutes from './routes/galeriaLugarRoutes';
 
 class Server {
 
@@ -81,6 +83,8 @@ class Server {
         this.app.use('/confiCertificados', confiCertificadosRoutes); 
         this.app.use('/eliminarArchivos', eliminarArchivosRoutes); 
         this.app.use('/usuarios', usuariosRoutes); 
+        this.app.use('/galeriaLugar', galeriaLugarRoutes); 
+        this.app.use('/galeriaInformacion', galeriaInformacionRoutes); 
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -92,6 +96,7 @@ class Server {
        this.app.use('/public/imagenesPortada', express.static(path.resolve('public/imagenesPortada'))); 
        this.app.use('/public/confiReportes', express.static(path.resolve('public/confiReportes'))); 
        this.app.use('/public/confiCertificados', express.static(path.resolve('public/confiCertificados'))); 
+       this.app.use('/public/galeria', express.static(path.resolve('public/galeria'))); 
 
         
     }
