@@ -33,6 +33,9 @@ import eliminarArchivosRoutes from './routes/eliminarArchivosRoutes';
 import usuariosRoutes from './routes/usuariosRoutes';
 import galeriaInformacionRoutes from './routes/galeriaInformacionRoutes';
 import galeriaLugarRoutes from './routes/galeriaLugarRoutes';
+import presentacionRoutes from './routes/presentacionRoutes';
+import informacionTutisticaRoutes from './routes/informacionTutisticaRoutes';
+import lugarDelEventoRoutes from './routes/lugarDelEventoRoutes';
 
 class Server {
 
@@ -85,6 +88,9 @@ class Server {
         this.app.use('/usuarios', usuariosRoutes); 
         this.app.use('/galeriaLugar', galeriaLugarRoutes); 
         this.app.use('/galeriaInformacion', galeriaInformacionRoutes); 
+        this.app.use('/informacionTuristica', informacionTutisticaRoutes); 
+        this.app.use('/presentacion', presentacionRoutes); 
+        this.app.use('/lugarDelEvento', lugarDelEventoRoutes);  
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -97,6 +103,9 @@ class Server {
        this.app.use('/public/confiReportes', express.static(path.resolve('public/confiReportes'))); 
        this.app.use('/public/confiCertificados', express.static(path.resolve('public/confiCertificados'))); 
        this.app.use('/public/galeria', express.static(path.resolve('public/galeria'))); 
+       this.app.use('/public/informacionTuristica', express.static(path.resolve('public/informacionTuristica'))); 
+       this.app.use('/public/presentacion', express.static(path.resolve('public/presentacion'))); 
+       this.app.use('/public/lugarDelEvento', express.static(path.resolve('public/lugarDelEvento'))); 
 
         
     }
