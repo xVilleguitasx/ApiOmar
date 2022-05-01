@@ -9,7 +9,15 @@ class GaleriaLugarController {
         const games = await pool.query('SELECT * FROM galeria_lugar_del_evento');
         res.json(games);
     }
-
+    public async create(req: Request, res: Response): Promise<void> {
+        const { id } = req.params;
+        if (req.file?.path !== undefined) {
+            req.body.imagen = req.file?.path;
+          }
+          console.log(req.body);
+          const result = await pool.query('INSERT INTO galeria_lugar_del_evento set ?', [req.body]);
+        res.json({ message: "Registro Creado" });
+    }
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         if (req.file?.path !== undefined) {
