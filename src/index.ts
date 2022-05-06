@@ -36,6 +36,12 @@ import galeriaLugarRoutes from './routes/galeriaLugarRoutes';
 import presentacionRoutes from './routes/presentacionRoutes';
 import informacionTutisticaRoutes from './routes/informacionTutisticaRoutes';
 import lugarDelEventoRoutes from './routes/lugarDelEventoRoutes';
+import programaRoutes from './routes/programaRoutes';
+import envioTrabajosRoutes from './routes/envioTrabajosRoutes';
+import envioTrabajosFormatosRoutes from './routes/envioTrabajosFormatosRoutes';
+import envioTrabajosFechaRoutes from './routes/envioTrabajosFechaRoutes';
+import temarioRoutes from './routes/temarioRoutes';
+import temarioTemasRoutes from './routes/temarioTemasRoutes';
 
 class Server {
 
@@ -91,6 +97,12 @@ class Server {
         this.app.use('/informacionTuristica', informacionTutisticaRoutes); 
         this.app.use('/presentacion', presentacionRoutes); 
         this.app.use('/lugarDelEvento', lugarDelEventoRoutes);  
+        this.app.use('/programa', programaRoutes);  
+        this.app.use('/envioTrabajos', envioTrabajosRoutes); 
+        this.app.use('/envioTrabajosFormatos', envioTrabajosFormatosRoutes); 
+        this.app.use('/envioTrabajosFechas', envioTrabajosFechaRoutes);  
+        this.app.use('/temario', temarioRoutes);  
+        this.app.use('/temarioTemas', temarioTemasRoutes);  
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -106,7 +118,8 @@ class Server {
        this.app.use('/public/informacionTuristica', express.static(path.resolve('public/informacionTuristica'))); 
        this.app.use('/public/presentacion', express.static(path.resolve('public/presentacion'))); 
        this.app.use('/public/lugarDelEvento', express.static(path.resolve('public/lugarDelEvento'))); 
-
+       this.app.use('/public/programa', express.static(path.resolve('public/programa'))); 
+       this.app.use('/public/envioTrabajosFormatos', express.static(path.resolve('public/envioTrabajosFormatos'))); 
         
     }
 

@@ -7,7 +7,7 @@ class GaleriaLugarRoutes {
     router: Router = Router();
 
     constructor() {
-        this.config();
+        this.config();  
     }
 
     config() {
