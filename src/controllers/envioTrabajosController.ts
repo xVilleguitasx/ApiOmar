@@ -21,12 +21,18 @@ class EnvioTrabajosController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
+        if (req.file?.path !== undefined) {
+            req.body.boton = req.file?.path;
+          }
         const result = await pool.query('INSERT INTO enviotrabajos set ?', [req.body]);
         res.json({ message: 'Registro Guardado' });
     }
 
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
+        if (req.file?.path !== undefined) {
+            req.body.boton = req.file?.path;
+          }
         await pool.query('UPDATE enviotrabajos set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }

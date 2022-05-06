@@ -1,4 +1,5 @@
 import express, { Router } from 'express';
+import multer from "../libs/storageEnvioTrabajos";
 import envioTrabajosController from '../controllers/envioTrabajosController';
 
 class EnvioTrabajosRoutes {
@@ -12,8 +13,8 @@ class EnvioTrabajosRoutes {
     config() {
         this.router.get('/', envioTrabajosController.list);
         this.router.get('/:id', envioTrabajosController.getOne);
-        this.router.post('/', envioTrabajosController.create);
-        this.router.put('/:id', envioTrabajosController.update);
+        this.router.post('/', multer.single("boton"), envioTrabajosController.create);
+        this.router.put('/:id', multer.single("boton"), envioTrabajosController.update);
         this.router.delete('/:id', envioTrabajosController.delete);
     }
 

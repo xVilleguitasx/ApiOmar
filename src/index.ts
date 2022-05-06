@@ -120,6 +120,7 @@ class Server {
        this.app.use('/public/lugarDelEvento', express.static(path.resolve('public/lugarDelEvento'))); 
        this.app.use('/public/programa', express.static(path.resolve('public/programa'))); 
        this.app.use('/public/envioTrabajosFormatos', express.static(path.resolve('public/envioTrabajosFormatos'))); 
+       this.app.use('/public/envioTrabajos', express.static(path.resolve('public/envioTrabajos'))); 
         
     }
 
