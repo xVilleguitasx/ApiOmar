@@ -21,12 +21,14 @@ class EnvioTrabajosFechasController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
+        console.log(req.body)
         const result = await pool.query('INSERT INTO enviotrabajos_fechasimportantes set ?', [req.body]);
         res.json({ message: 'Registro Guardado' });
     }
 
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
+        console.log(req.body)
         await pool.query('UPDATE enviotrabajos_fechasimportantes set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }

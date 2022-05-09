@@ -21,7 +21,10 @@ class EnvioTrabajosFormatosController {
     }
 
     public async create(req: Request, res: Response): Promise<void> {
-        req.body.imagen = req.file?.path;
+        if (req.file?.path !== undefined) {
+            req.body.boton = req.file?.path;
+          }
+          console.log(req.body)
         const result = await pool.query('INSERT INTO enviotrabajos_formatos set ?', [req.body]);
         res.json({ message: 'Registro Guardado' });
     }
@@ -29,8 +32,9 @@ class EnvioTrabajosFormatosController {
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
         if (req.file?.path !== undefined) {
-            req.body.imagen = req.file?.path;
+            req.body.boton = req.file?.path;
           }
+          console.log(req.body)
         await pool.query('UPDATE enviotrabajos_formatos set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }
