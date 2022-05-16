@@ -11,8 +11,12 @@ class InformacionCongresoRoutes {
     }
 
     config() {
+        var cpUpload = multer.fields([
+            { name: "logo", maxCount: 1 },
+            { name: "favicon", maxCount: 1 },
+          ]);
         this.router.get('/', informacionCongresoController.list);
-        this.router.put('/:id',multer.single("logo"),informacionCongresoController.update);
+        this.router.put('/:id',cpUpload,informacionCongresoController.update);
     }
 
 }

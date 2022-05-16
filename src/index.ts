@@ -28,7 +28,6 @@ import informacionCongresoRoutes from './routes/informacionCongresoRoutes';
 import imagenesPortadaRoutes from './routes/imagenesPortadaRoutes';
 import authRoutes from './routes/authRoutes';
 import confiReportesRoutes from './routes/confiReportesRoutes';
-import confiCertificadosRoutes from './routes/confiCertificadosRoutes';
 import eliminarArchivosRoutes from './routes/eliminarArchivosRoutes';
 import usuariosRoutes from './routes/usuariosRoutes';
 import galeriaInformacionRoutes from './routes/galeriaInformacionRoutes';
@@ -89,7 +88,6 @@ class Server {
         this.app.use('/imagenesPortada', imagenesPortadaRoutes); 
         this.app.use('/auth', authRoutes); 
         this.app.use('/confiReportes', confiReportesRoutes); 
-        this.app.use('/confiCertificados', confiCertificadosRoutes); 
         this.app.use('/eliminarArchivos', eliminarArchivosRoutes); 
         this.app.use('/usuarios', usuariosRoutes); 
         this.app.use('/galeriaLugar', galeriaLugarRoutes); 

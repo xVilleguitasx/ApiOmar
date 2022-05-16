@@ -6,7 +6,7 @@ import pool from '../database';
 class ComiteController {
 
     public async list(req: Request, res: Response): Promise<void> {
-        const games = await pool.query('SELECT c.id, tc.tipo, c.nombre, c.cargo, c.instituto, c.pais, c.edicion FROM comite as c, tipo_comite as tc WHERE c.id_tipo_per=tc.id ORDER BY c.id ASC');
+        const games = await pool.query('SELECT c.id, tc.tipo,c.validacion, c.nombre, c.cargo, c.instituto, c.pais, c.edicion FROM comite as c, tipo_comite as tc WHERE c.id_tipo_per=tc.id ORDER BY c.id ASC');
         res.json(games);
     }
 
