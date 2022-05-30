@@ -11,10 +11,14 @@ class ProgramaRoutes {
     }
 
     config() {
+        var cpUpload = multer.fields([
+            { name: "imagen", maxCount: 1 },
+            { name: "triptico", maxCount: 1 },
+          ]);
         this.router.get('/', programaController.list);
         this.router.get('/:id', programaController.getOne);
-        this.router.post('/',multer.single("imagen"), programaController.create);
-        this.router.put('/:id',multer.single("imagen"), programaController.update);
+        this.router.post('/',cpUpload, programaController.create);
+        this.router.put('/:id',cpUpload, programaController.update);
         this.router.delete('/:id', programaController.delete);
     }
 

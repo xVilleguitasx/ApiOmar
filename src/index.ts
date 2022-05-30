@@ -41,6 +41,11 @@ import envioTrabajosFormatosRoutes from './routes/envioTrabajosFormatosRoutes';
 import envioTrabajosFechaRoutes from './routes/envioTrabajosFechaRoutes';
 import temarioRoutes from './routes/temarioRoutes';
 import temarioTemasRoutes from './routes/temarioTemasRoutes';
+import inicioRoutes from './routes/inicioRoutes';
+import inicioGaleriaRoutes from './routes/inicioGaleriaRoutes';
+import programaDetalleRoutes from './routes/programaDetalleRoutes';
+import programaJornadaRoutes from './routes/programaJornadaRoutes';
+import programaDiasRoutes from './routes/programaDiasRoutes';
 
 class Server {
 
@@ -101,6 +106,11 @@ class Server {
         this.app.use('/envioTrabajosFechas', envioTrabajosFechaRoutes);  
         this.app.use('/temario', temarioRoutes);  
         this.app.use('/temarioTemas', temarioTemasRoutes);  
+        this.app.use('/inicio', inicioRoutes);  
+        this.app.use('/inicioGaleria', inicioGaleriaRoutes);  
+        this.app.use('/programaDetalle', programaDetalleRoutes);  
+        this.app.use('/programaJornada', programaJornadaRoutes);  
+        this.app.use('/programaDias', programaDiasRoutes);  
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
@@ -119,6 +129,8 @@ class Server {
        this.app.use('/public/programa', express.static(path.resolve('public/programa'))); 
        this.app.use('/public/envioTrabajosFormatos', express.static(path.resolve('public/envioTrabajosFormatos'))); 
        this.app.use('/public/envioTrabajos', express.static(path.resolve('public/envioTrabajos'))); 
+       this.app.use('/public/inicio', express.static(path.resolve('public/inicio'))); 
+       this.app.use('/public/inicioGaleria', express.static(path.resolve('public/inicioGaleria'))); 
         
     }
 
