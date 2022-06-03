@@ -30,9 +30,9 @@ class ProgramaController {
 
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-          try {
-            req.body.imagen = req.file?.path;
-          } catch (error) {}
+        const obj = JSON.parse(JSON.stringify(req.files));
+        try {  (obj.imagen[0]) ? req.body.imagen = obj.imagen[0].path : "";}catch (error) {}
+        try {    (obj.triptico[0]) ? req.body.triptico = obj.triptico[0].path : "";}catch (error) {}
         await pool.query('UPDATE programa set ? WHERE id = ?', [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }
