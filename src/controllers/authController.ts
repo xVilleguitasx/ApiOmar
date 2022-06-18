@@ -17,7 +17,8 @@ class CarrerasController {
       }else{
         const token = jwt.sign(
           { userId: query[0].id, username: query[0].usuario },
-          "CSEI"
+          "CSEI",{expiresIn:'1h'}
+          
         );
         res.json({
           token,
