@@ -11,7 +11,12 @@ class UsuariosRoutes {
     }
 
     config() {
+        
+        this.router.get('/', usuariosController.list);
+        this.router.get('/:id', usuariosController.getOne);
         this.router.post('/', usuariosController.create);
+        this.router.put('/:id', usuariosController.update);
+        this.router.delete('/:id', usuariosController.delete);
     }
 
 }

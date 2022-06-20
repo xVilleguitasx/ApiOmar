@@ -111,6 +111,7 @@ class Server {
         this.app.use('/programaDetalle', programaDetalleRoutes);  
         this.app.use('/programaJornada', programaJornadaRoutes);  
         this.app.use('/programaDias', programaDiasRoutes);  
+        this.app.use('/usuarios', usuariosRoutes);  
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 
