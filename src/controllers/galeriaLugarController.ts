@@ -27,7 +27,11 @@ class GaleriaLugarController {
         await pool.query(`UPDATE galeria_lugar_del_evento set ? WHERE id = ?`, [req.body, id]);
         res.json({ message: "Registro actualizado" });
     }
-
+    public async delete(req: Request, res: Response): Promise<void> {
+        const { id } = req.params;
+        await pool.query('DELETE FROM galeria_lugar_del_evento WHERE id = ?', [id]);
+        res.json({ message: "Registro  eliminado" });
+    }
   
 }
 

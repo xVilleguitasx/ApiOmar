@@ -14,6 +14,7 @@ class GaleriaLugarRoutes {
         this.router.get('/', galeriaLugarController.list);
         this.router.post('/', multer.single("imagen"),galeriaLugarController.create);
         this.router.put('/:id',  multer.single("imagen"),galeriaLugarController.update);
+        this.router.delete('/:id', galeriaLugarController.delete);
     }
 
 }
