@@ -21,6 +21,7 @@ class InscripcionController {
     res.status(404).json({ text: "Inscripción no existe" });
   }
 
+ 
   public async create(req: Request, res: Response): Promise<void> {
     const result = await pool.query("INSERT INTO inscripcion set ?", [req.body]);
     console.log(result);

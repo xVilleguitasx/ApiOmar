@@ -46,6 +46,8 @@ import inicioGaleriaRoutes from './routes/inicioGaleriaRoutes';
 import programaDetalleRoutes from './routes/programaDetalleRoutes';
 import programaJornadaRoutes from './routes/programaJornadaRoutes';
 import programaDiasRoutes from './routes/programaDiasRoutes';
+import mailerRoutes from './routes/mailerRoutes';
+import tipoUsuarioRoutes from './routes/tipoUsuarioRoutes';
 
 class Server {
 
@@ -112,6 +114,8 @@ class Server {
         this.app.use('/programaJornada', programaJornadaRoutes);  
         this.app.use('/programaDias', programaDiasRoutes);  
         this.app.use('/usuarios', usuariosRoutes);  
+        this.app.use('/mailer', mailerRoutes); 
+        this.app.use('/tipoUsuario', tipoUsuarioRoutes);  
        // this.app.use('/certificados', certificadoController);
        this.app.use('/public/comprobantes', express.static(path.resolve('public/comprobantes'))); 
        this.app.use('/public/facturas', express.static(path.resolve('public/facturas'))); 

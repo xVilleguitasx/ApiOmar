@@ -12,20 +12,21 @@ class UsuarioController {
     }
 
     public async getOne(req: Request, res: Response): Promise<any> {
+        
         const { id } = req.params;
-        const games = await pool.query('SELECT * FROM usuario WHERE id = ?', [id]);
+        const games = await pool.query('SELECT * FROM usuario WHERE usuario = ?', [id]);
         console.log(games.length);
-        if (games.length > 0) {
+        if (games.length > 0 && games.length < 2) {
             return res.json(games[0]);
         }
         res.status(404).json({ text: "El registro no existe" });
     }
     public async create(req: Request, res: Response): Promise<void> {
-        console.log(req.body);
+       
         const salt = bcryptjs.genSaltSync(10);
         req.body.pass = bcryptjs.hashSync(req.body.pass, salt);
         const result = await pool.query('INSERT INTO usuario set ?', [req.body]);
-        res.json({ message: 'Usuario Guardado' });
+        res.json( { message: 'Usuario Guardado' });
     }
     public async update(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
